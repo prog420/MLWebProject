@@ -1,0 +1,81 @@
+body {
+    font: 15px/1.5 Arial, Helvetica, sans-serif;
+    background-color: #fafafa;
+    margin: 0;
+    padding: 0;
+}
+
+table {
+    border-collapse:collapse;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+#header {
+    margin-top: 10px;
+    background-color: lightgray;
+}
+
+#brandname {
+    font-size: 2.5vw;
+    color: rgb(0, 0, 0);
+    text-shadow: 0.01vw 0.05vw 0.1vw black, 0 0 0.1vw lightgray;
+}
+
+#headerText {
+    font-size: 1.5vw;
+    color: rgb(0, 0, 0);
+}
+
+#logo {
+    padding-top: 5px;
+    width: 6vw;
+}
+
+.ml_container {
+    font-size: 110%;
+}
+
+.btn-info {
+    background-color: #2196F3;
+    height: 40px;
+    width: 100px;
+    font-size: 100%;
+}
+.btn-info:hover {background: #0b7dda}
+
+.results {
+    border-radius: 15px 50px;
+}
+
+#mainText {
+    font-size: 100%;
+}
+
+#prodHeader {
+    font-size: 1.5vw;
+    font-weight: bold;
+}
+
+#prodSmi {
+    font-size: 2.4vh;
+    font-weight: lighter;
+}
+
+a:active {
+    color: rgb(218, 218, 218);
+}
+a:visited {
+    color:rgb(154, 172, 212);
+}
+
+#footer {
+    position: fixed; /* Фиксированное положение */
+    left: 0; bottom: 0; /* Левый нижний угол */
+    padding: 5px; /* Поля вокруг текста */
+    background: #4e4e4e; /* Цвет фона */
+    color: #fff; /* Цвет текста */
+    width: 100%; /* Ширина слоя */
+   }
