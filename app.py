@@ -37,9 +37,22 @@ def image():
     return json.dumps({'img': str(img)}); 
 
 def get_svg(smi):
+    """
+    Return "..." if SMILES is not finished or contains errors
+    Customization of bonds and fonts enabled
+    """
     svg = smiles(smi)
-    svg.clean2d()
-    svg = svg.depict()
+    customize = True
+    try:
+        svg.clean2d()
+        svg = svg.depict()
+        if customize:
+            svg = svg.replace('<g fill="#101010" font-family="sans-serif">', '<g fill="#101010" font-family="sans-serif">')
+            svg = svg.replace('<g fill="none" stroke="black" stroke-width="0.04"', 
+                            '<g fill="none" stroke="black" stroke-width="0.06"')
+            svg = svg.replace('<g fill="#0305A7" font-size="0.25"', '<g fill="#0305A7" font-size="0.3"')
+    except AttributeError:
+        svg = "..."
     return svg
 
 if __name__ == "__main__":

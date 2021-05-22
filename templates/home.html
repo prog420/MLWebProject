@@ -14,14 +14,14 @@
         <tr id="header">
             <th id="headerText">ML App</th>
             <th id="brandname">Product Prediction with SMILES</th>
-            <td><img id="logo" src="./static/resources/logo.jpg" alt="CIMM"></td>
+            <td><img id="logo" src="./static/resources/logo.webp" alt="CIMM"></td>
         </tr>
         <tr>
             <td class="ml_container" colspan="3">
                 <form>
                     <p>Enter Your SMILES:</p>
                     <!-- <input_type="text" name="comment"/> -->
-                    <textarea id="mainText" name="SMILES" rows="4" cols="50"></textarea>
+                    <textarea id="mainText" name="SMILES" rows="4" cols="50" oninput="getImage()"></textarea>
                     </br>
                 </form>
                 Beam Width:
@@ -35,7 +35,7 @@
         </tr>
         <tr>
             <td colspan="3">
-                <button type="submit" class="btn-info" onclick="getImage()">Get Image</button>
+                <button type="submit" class="btn-info" onclick="getImage()">Repaint</button>
             </td>
         </tr>
         <tr>

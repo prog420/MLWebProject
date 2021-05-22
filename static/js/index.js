@@ -1,6 +1,13 @@
-function getImage() {
-	var imageField = document.getElementById("imageField");
+document.onload = function () {
+	// Initializing variables
+    var imageField = document.getElementById("imageField");
 	var mainText = document.getElementById("mainText");
+	var predField = document.getElementById("prodSmi");
+	var beamSizeValue = document.getElementById("beamSizeValue");
+};
+
+function getImage() {
+	// Get depiction of SMILES
 	$.getJSON(
 		'/image', 
 		{ post: mainText.value }, 
@@ -12,10 +19,6 @@ function getImage() {
 };
 
 function getPrediction() {
-	var imageField = document.getElementById("imageField");
-	var mainText = document.getElementById("mainText");
-	var predField = document.getElementById("prodSmi");
-	var beamSizeValue = document.getElementById("beamSizeValue");
 	$.getJSON(
 		'/predict', 
 		{ post: mainText.value,
