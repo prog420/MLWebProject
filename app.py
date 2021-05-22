@@ -19,7 +19,10 @@ def predict():
     algo = client.algo('Dmitry_BV/predictor/1.0.0')
     algo.set_options(timeout=100) # optional 
     smi = request.args.get('post')
-    answers = algo.pipe({"reaction": smi}).result["product"]
+    beamSize = request.args.get('beamSize')
+
+    input_query = {"reaction": smi, 'beamWidth': beamSize}
+    answers = algo.pipe(input_query).result["product"]
     reaction = smi + ">>" + answers
     img = get_svg(reaction)
 

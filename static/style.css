@@ -59,6 +59,10 @@ table {
     font-weight: bold;
 }
 
+#beamSizeValue {
+    font-size: 100%;
+}
+
 #prodSmi {
     font-size: 2.4vh;
     font-weight: lighter;

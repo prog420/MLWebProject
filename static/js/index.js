@@ -15,9 +15,11 @@ function getPrediction() {
 	var imageField = document.getElementById("imageField");
 	var mainText = document.getElementById("mainText");
 	var predField = document.getElementById("prodSmi");
+	var beamSizeValue = document.getElementById("beamSizeValue");
 	$.getJSON(
 		'/predict', 
-		{ post: mainText.value }, 
+		{ post: mainText.value,
+		  beamSize: beamSizeValue.value }, 
 		function(data) {
 			var pred = data.prediction;
 			var pred_img = data.reaction;
