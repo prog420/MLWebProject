@@ -40,8 +40,7 @@ def image():
 def get_smiles():
     smiles_list = []
     string = request.args.get('post')
-    string = string.replace(".", " ")
-    string = string.split()
+    string = string.split(".")
     for element in string:
         try:
             smi = str(smiles(get_compounds(element, "name")[0].canonical_smiles))
