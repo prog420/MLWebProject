@@ -1,8 +1,7 @@
-import joblib
-import re
 import json
 import Algorithmia
 from CGRtools import smiles
+from pubchempy import Compound, get_compounds
 from flask import Flask, render_template, url_for, request
 
 
@@ -16,12 +15,12 @@ def home():
 @app.route('/predict', methods=['GET','POST'])
 def predict():
     client = Algorithmia.client('simtds2YG9Ed/wd5xucmvHy+U8G1')
-    algo = client.algo('Dmitry_BV/predictor/1.0.0')
+    algo = client.algo('Dmitry_BV/predictor/1.0.1')
     algo.set_options(timeout=100) # optional 
     smi = request.args.get('post')
     beamSize = request.args.get('beamSize')
 
-    input_query = {"reaction": smi, 'beamWidth': beamSize}
+    input_query = {"reaction": smi, 'beamWidth': int(beamSize)}
     answers = algo.pipe(input_query).result["product"]
     reaction = smi + ">>" + answers
     img = get_svg(reaction)
@@ -35,6 +34,23 @@ def image():
     img = get_svg(post)
     
     return json.dumps({'img': str(img)}); 
+
+
+@app.route('/smiles', methods=['GET','POST'])
+def get_smiles():
+    smiles_list = []
+    string = request.args.get('post')
+    string = string.replace(".", " ")
+    string = string.split()
+    for element in string:
+        try:
+            smi = str(smiles(get_compounds(element, "name")[0].canonical_smiles))
+            smiles_list.append(smi)
+        except IndexError:
+            continue
+
+    return json.dumps({'smiles': ".".join(smiles_list)}); 
+
 
 def get_svg(smi):
     """

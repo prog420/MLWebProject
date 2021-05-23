@@ -2,7 +2,6 @@ document.onload = function () {
 	// Initializing variables
     var imageField = document.getElementById("imageField");
 	var mainText = document.getElementById("mainText");
-	var predField = document.getElementById("prodSmi");
 	var beamSizeValue = document.getElementById("beamSizeValue");
 };
 
@@ -19,6 +18,7 @@ function getImage() {
 };
 
 function getPrediction() {
+	var predField = document.getElementById("prodSmi");
 	$.getJSON(
 		'/predict', 
 		{ post: mainText.value,
@@ -28,6 +28,20 @@ function getPrediction() {
 			var pred_img = data.reaction;
 			imageField.innerHTML = pred_img;
 			predField.innerHTML = `<br />Predicted Reaction: <br /> ${pred}`;
+			console.log(pred)
+			console.log(pred_img)
+		} 
+	)
+};
+
+function getSMILES() {
+	// Get SMILES string for names
+	$.getJSON(
+		'/smiles', 
+		{ post: mainText.value }, 
+		function(data) {
+			var response = data.smiles; 
+			mainText.value = response;
 		} 
 	)
 };

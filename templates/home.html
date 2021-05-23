@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Home</title>
     <link rel="stylesheet" type="text/css" href="./static/style.css">
-    <link rel="icon" href="./static/resources/favicon.ico"/>
+    <link rel="icon" type="image/png" sizes="32x32" href="./static/resources/favicon.png">
     <script type="text/javascript" src="{{ url_for('static', filename='js/index.js') }}"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 	<!-- <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">-->
@@ -31,11 +31,12 @@
                     <option value="5">5</option>
                 </select><br />
                 <button type="submit" class="btn-info" onclick="getPrediction()">Predict</button>
+                <button type="submit" class="btn-info" onclick="getImage()">Repaint</button>
             </td>
         </tr>
         <tr>
             <td colspan="3">
-                <button type="submit" class="btn-info" onclick="getImage()">Repaint</button>
+                <button type="submit" class="btn-info" onclick="getSMILES()">Names to SMILES</button>
             </td>
         </tr>
         <tr>
