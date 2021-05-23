@@ -25,7 +25,7 @@ def predict():
     reaction = smi + ">>" + answers
     img = get_svg(reaction)
 
-    return json.dumps({'prediction': str(reaction), 'reaction': str(img)})
+    return json.dumps({'prediction': str(reaction), 'reaction': img})
 
 
 @app.route('/image', methods=['GET','POST'])
@@ -33,12 +33,13 @@ def image():
     post = request.args.get('post')
     img = get_svg(post)
     
-    return json.dumps({'img': str(img)}); 
+    return json.dumps({'img': img}); 
 
 
 @app.route('/smiles', methods=['GET','POST'])
 def get_smiles():
     smiles_list = []
+
     string = request.args.get('post')
     string = string.split(".")
     for element in string:
@@ -47,8 +48,10 @@ def get_smiles():
             smiles_list.append(smi)
         except IndexError:
             continue
+    smiles_list = ".".join(smiles_list)
+    img = get_svg(smiles_list)
 
-    return json.dumps({'smiles': ".".join(smiles_list)}); 
+    return json.dumps({'smiles': smiles_list, 'img': img}); 
 
 
 def get_svg(smi):

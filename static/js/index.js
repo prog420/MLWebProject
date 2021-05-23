@@ -40,8 +40,10 @@ function getSMILES() {
 		'/smiles', 
 		{ post: mainText.value }, 
 		function(data) {
-			var response = data.smiles; 
+			var response = data.smiles;
+			var image = data.img; 
 			mainText.value = response;
+			imageField.innerHTML = image;
 		} 
 	)
 };
