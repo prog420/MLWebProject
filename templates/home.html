@@ -5,7 +5,7 @@
     <title>Home</title>
     <link rel="stylesheet" type="text/css" href="./static/style.css">
     <link rel="icon" type="image/png" sizes="32x32" href="./static/resources/favicon.png">
-    <script type="text/javascript" src="{{ url_for('static', filename='js/index.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/index.js') }}" defer></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 	<!-- <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">-->
 </head>
@@ -13,13 +13,13 @@
     <table>
         <tr id="header">
             <th id="headerText">ML App</th>
-            <th id="brandname">Product Prediction with SMILES</th>
+            <th id="brandname">Reaction Prediction</th>
             <td><img id="logo" src="./static/resources/logo.webp" alt="CIMM"></td>
         </tr>
         <tr>
             <td class="ml_container" colspan="3">
                 <form>
-                    <p>Enter Your SMILES:</p>
+                    <p>Enter SMILES or IUPAC names of reactants (delimiter: "."):</p>
                     <!-- <input_type="text" name="comment"/> -->
                     <textarea id="mainText" name="SMILES" rows="4" cols="50" oninput="getImage()"></textarea>
                     </br>
@@ -29,14 +29,19 @@
                     <option value="1">1</option>
                     <option value="3">3</option>
                     <option value="5">5</option>
-                </select><br />
+                </select>
+                <br />
                 <button type="submit" class="btn-info" onclick="getPrediction()">Predict</button>
                 <button type="submit" class="btn-info" onclick="getImage()">Repaint</button>
             </td>
         </tr>
         <tr>
-            <td colspan="3">
+            <td id='inputSelector' colspan="3">
                 <button type="submit" class="btn-info" onclick="getSMILES()">Names to SMILES</button>
+                <div style="font-size: 110%;">
+                    Language:
+                    <select id="selectLang"></select>
+                </div>
             </td>
         </tr>
         <tr>

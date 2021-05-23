@@ -21,26 +21,31 @@ table {
     background-color: lightgray;
 }
 
+/* Left part of Header */
+#headerText {
+    font-size: 1.5vw;
+    color: rgb(0, 0, 0);
+}
+
+/* Middle part of Header */
 #brandname {
     font-size: 2.5vw;
     color: rgb(0, 0, 0);
     text-shadow: 0.01vw 0.05vw 0.1vw black, 0 0 0.1vw lightgray;
 }
 
-#headerText {
-    font-size: 1.5vw;
-    color: rgb(0, 0, 0);
-}
-
+/* Company Logo */
 #logo {
     padding-top: 5px;
     width: 6vw;
 }
 
+/* Input Form container */
 .ml_container {
     font-size: 110%;
 }
 
+/* Buttons Style */
 .btn-info {
     background-color: #2196F3;
     height: 40px;
@@ -49,11 +54,17 @@ table {
 }
 .btn-info:hover {background: #0b7dda}
 
+
 .results {
     border-radius: 15px 50px;
 }
 
 #mainText {
+    font-size: 110%;
+}
+
+/* Drop-down menu */
+#beamSizeValue, #selectLang {
     font-size: 100%;
 }
 
@@ -62,19 +73,12 @@ table {
     font-weight: bold;
 }
 
-#beamSizeValue {
-    font-size: 100%;
-}
-
 #prodSmi {
     font-size: 2.4vh;
     font-weight: lighter;
 }
 
-text:hover {
-    font-size: 200%;
-}
-
+/* Algorithmia link */
 a:active {
     color: rgb(218, 218, 218);
 }
