@@ -59,6 +59,7 @@ table {
     border-radius: 15px 50px;
 }
 
+/* Text inside form */
 #mainText {
     font-size: 110%;
 }
@@ -68,17 +69,21 @@ table {
     font-size: 100%;
 }
 
-#prodHeader {
-    font-size: 1.5vw;
-    font-weight: bold;
-}
-
-#prodSmi {
-    font-size: 2.4vh;
-    font-weight: lighter;
-    max-width: 75%;
+/* SMILES string for obtained prediction */
+#prodSmi, #decomposedCGR {
+    font-size: 110%;
+    max-width: 75vw;
     word-wrap: break-word;
     display: inline-block;
+}
+
+/* Decomposed CGR images */
+#cgrProd {
+    margin-bottom: 5%;
+}
+
+#cgrArrow {
+    width: 50px;
 }
 
 /* Algorithmia link */
