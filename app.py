@@ -16,12 +16,13 @@ def home():
 @app.route('/predict', methods=['GET','POST'])
 def predict():
     client = Algorithmia.client('simtds2YG9Ed/wd5xucmvHy+U8G1')
-    algo = client.algo('Dmitry_BV/predictor/1.0.1')
+    algo = client.algo('Dmitry_BV/predictor/1.1.2')
     algo.set_options(timeout=100) # optional 
     smi = request.args.get('post')
     beamSize = request.args.get('beamSize')
+    model = request.args.get('model')
 
-    input_query = {"reaction": smi, 'beamWidth': int(beamSize)}
+    input_query = {"reaction": smi, 'beamWidth': int(beamSize), "model": model}
     answers = algo.pipe(input_query).result["product"]
     reaction = smi + ">>" + answers
     img = get_svg(reaction)

@@ -2,6 +2,7 @@ var imageField = document.getElementById("imageField");
 var mainText = document.getElementById("mainText");
 var predField = document.getElementById("prodSmi");
 var beamSizeValue = document.getElementById("beamSizeValue");
+var modelValue = document.getElementById("modelValue");
 var langValue = document.getElementById("selectLang");
 
 var selectLang = document.getElementById("selectLang");
@@ -31,14 +32,13 @@ function getPrediction() {
 	$.getJSON(
 		'/predict', 
 		{ post: mainText.value,
-		  beamSize: beamSizeValue.value }, 
+		  beamSize: beamSizeValue.value ,
+		  model: modelValue.value }, 
 		function(data) {
 			var pred = data.prediction;
 			var pred_img = data.reaction;
 			imageField.innerHTML = pred_img;
 			predField.innerHTML = `<br />Predicted Reaction: <br /> ${pred}`;
-			console.log(pred)
-			console.log(pred_img)
 		} 
 	)
 };
