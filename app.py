@@ -49,7 +49,7 @@ def predict():
     algo = client.algo('Dmitry_BV/predictor/1.1.2')
     algo.set_options(timeout=100) # optional
 
-    cgr = "C12(C(CCC1C3C(C4(C(C(C3)=C)=CC(C[->=]C4)=O)CC#C)CC2)=O)C.[O-]" # Test input
+    # cgr = "C12(C(CCC1C3C(C4(C(C(C3)=C)=CC(C[->=]C4)=O)CC#C)CC2)=O)C.[O-]" # Test input
     smi = request.args.get('post')
     beamSize = request.args.get('beamSize')
     model = request.args.get('model')
@@ -61,7 +61,7 @@ def predict():
     # Generating 2 SMILES strings (reactants and products) and 2 SVG images for them
     result_dict = {}
     if model == "cgr":
-        decomposed = smiles(cgr)
+        decomposed = smiles(answers)
         decomposed_smiles, svg_list = decompose_cgr(decomposed)
         img = get_svg(decomposed)
         result_dict['decomposed_smiles'] = decomposed_smiles
